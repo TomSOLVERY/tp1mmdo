@@ -1,14 +1,24 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      MOVIE
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+      <ion-item *ngFor="let current of result">
+        <ion-thumbnail item-start>
+          <img [src]="current.image" alt="Seigneurs des Anneaux">
+        </ion-thumbnail>
+        <h2>
+          {{current.title}}
+        </h2>
+        <p>{{current.date}}</p>
+        <button ion-button item-end >
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+  </ion-list>
 </ion-content>
