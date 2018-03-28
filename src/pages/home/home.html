@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list *ngIf="!resultempty">
+  <ion-list>
       <ion-item *ngFor="let current of result">
         <ion-thumbnail item-start>
           <img [src]="current.image" alt="Seigneurs des Anneaux">
@@ -17,12 +17,12 @@
           {{current.title}}
         </h2>
         <p>{{current.date}}</p>
-        <button ion-button item-end >
+        <button ion-button item-end [navPush]="detailspage" [navParams]="current">
           <ion-icon name="arrow-forward"></ion-icon>
         </button> 
       </ion-item>
+      <ion-item *ngIf="result.length < 1">
+          Aucun Résultat !
+      </ion-item>
   </ion-list>
-  <ion-content *ngIf="resultempty">
-    Aucun Résultat !
-  </ion-content>
 </ion-content>

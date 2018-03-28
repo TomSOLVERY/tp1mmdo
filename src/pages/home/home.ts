@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Title } from '@angular/platform-browser/src/browser/title';
+import { DetailsPage } from '../details/details';
 
 export interface Movie {
   title: string;
@@ -25,15 +25,18 @@ export class HomePage {
   result: Movie[];
   picture: string;
   resultempty : boolean;
+  detailspage : any;
+
 
 
   constructor(public navCtrl: NavController) {
-    this.result = film;
     this.resultempty = true;
+    this.detailspage = DetailsPage;
+    this.result = [];
   }
 
   onClear(ev: any) {
-    this.resultempty = true;
+    this.result = [];
     return;
   }
 
@@ -42,10 +45,11 @@ export class HomePage {
     this.onClear(ev);
     let val = ev.target.value;
     if (val && val.trim() != '') {
-      this.resultempty = false;
+      this.result = film;
     }
     else {
       return this.onClear(ev);
     }
+    
   }
 }

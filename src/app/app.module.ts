@@ -21,7 +21,8 @@ import { DetailsPage } from '../pages/details/details';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    DetailsPage
   ],
   providers: [
     StatusBar,
