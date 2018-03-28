@@ -11,12 +11,12 @@
   <ion-list>
       <ion-item *ngFor="let current of result">
         <ion-thumbnail item-start>
-          <img [src]="current.image" alt="Seigneurs des Anneaux">
+          <img [src]="current.poster_path" alt="Seigneurs des Anneaux">
         </ion-thumbnail>
         <h2>
           {{current.title}}
         </h2>
-        <p>{{current.date}}</p>
+        <p>{{current.release_date}}</p>
         <button ion-button item-end [navPush]="detailspage" [navParams]="current">
           <ion-icon name="arrow-forward"></ion-icon>
         </button> 
