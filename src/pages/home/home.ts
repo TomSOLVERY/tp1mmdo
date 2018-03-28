@@ -29,12 +29,11 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {
     this.result = film;
-    this.resultempty = false;
+    this.resultempty = true;
   }
 
   onClear(ev: any) {
-    this.result = film;
-    this.resultempty = false;
+    this.resultempty = true;
     return;
   }
 
@@ -43,16 +42,10 @@ export class HomePage {
     this.onClear(ev);
     let val = ev.target.value;
     if (val && val.trim() != '') {
-      this.result = this.result.filter((item) => {
-        return (item.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      })
+      this.resultempty = false;
     }
-    else if (!val) {
+    else {
       return this.onClear(ev);
-    }
-    else if(val.trim() == ''){
-      this.resultempty = true;
-      return;
     }
   }
 }
