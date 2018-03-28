@@ -3,11 +3,12 @@
     <ion-title>
       MOVIE
     </ion-title>
+    <ion-searchbar (ionInput)="getItems($event)" (ionClear)="onClear($event)"></ion-searchbar>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
+  <ion-list *ngIf="!resultempty">
       <ion-item *ngFor="let current of result">
         <ion-thumbnail item-start>
           <img [src]="current.image" alt="Seigneurs des Anneaux">
@@ -18,7 +19,10 @@
         <p>{{current.date}}</p>
         <button ion-button item-end >
           <ion-icon name="arrow-forward"></ion-icon>
-        </button>
+        </button> 
       </ion-item>
   </ion-list>
+  <ion-content *ngIf="resultempty">
+    Aucun Résultat !
+  </ion-content>
 </ion-content>
