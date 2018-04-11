@@ -14,11 +14,11 @@
 
 
 <ion-content padding>
-  <ion-img width="185" height="278" [src]="TheFilm.poster_path">
+  <ion-img width="185" height="278" [src]="'https://image.tmdb.org/t/p/w500'.concat(TheFilm.poster_path)">
     
   </ion-img>
     <h2>{{TheFilm.title}}</h2>
-    <h5>{{TheFilm.release_date}}</h5>
+    <h5>{{(TheFilm.release_date | date:'fullDate')}}</h5>
     <p>{{TheFilm.overview}}</p>
     <h3>{{TheFilm.vote_average}}/10</h3>
 

@@ -9,19 +9,19 @@
 
 <ion-content padding>
   <ion-list>
-      <ion-item *ngFor="let current of result">
+      <ion-item *ngFor="let current of (result | async)">
         <ion-thumbnail item-start>
-          <img [src]="current.poster_path" alt="Seigneurs des Anneaux">
+          <img [src]= "'https://image.tmdb.org/t/p/w500'.concat(current.poster_path)" [alt]="current.title">
         </ion-thumbnail>
         <h2>
           {{current.title}}
         </h2>
-        <p>{{current.release_date}}</p>
+        <p>{{(current.release_date | date:'fullDate')}}</p>
         <button ion-button item-end [navPush]="detailspage" [navParams]="current">
           <ion-icon name="arrow-forward"></ion-icon>
         </button> 
       </ion-item>
-      <ion-item *ngIf="result.length < 1">
+      <ion-item *ngIf="(result | async)?.length < 1">
           Aucun Résultat !
       </ion-item>
   </ion-list>
